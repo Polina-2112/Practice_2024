@@ -6,31 +6,7 @@
     <title>Order</title>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=08d03d33-8f86-4a08-ae31-c4ef26006a26&lang=ru_RU" type="text/javascript">
     </script>
-    <script type="text/javascript">
-        ymaps.ready(init);
-        var long, lat, myMap;
-        function init(){
-                myMap = new ymaps.Map("map", {
-                center: [54.167324, 37.584789],
-                zoom: 15
-            });
-        }
-        navigator.geolocation.getCurrentPosition(show, error);
-        function show(position)
-        {
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
-            myMap.setCenter([lat, long]);
-            console.log("show")
-        }
-        function error(positionError)
-        {
-            long = 54.167324;
-            lat = 37.584789;
-            myMap.setCenter([lat, long]);
-            console.log("error")
-        }
-    </script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <style>
     body 
@@ -65,22 +41,24 @@
         #map 
         {
             margin: 5px 5px 5px 5px;
-            height: 200px;
-            width: 350px;
+            height: 300px;
+            width: 500px;
             background-color: lightgrey;
+        }
+        #mes
+        {
+            font-size: 18px;
         }
 </style>
 <body>
     <div class="container">
-        <input type="text" id="fio" required placeholder="ФИО">
-        <input type="number" id="phone" required placeholder="Номер телефона">
-        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="fio" placeholder="ФИО">
+        <input type="text" id="phone" placeholder="Номер телефона">
+        <input type="text" id="email" placeholder="Email">
         <input type="text" id="comm" placeholder="Комментарий к заказу">
-        <div id="map">
-
-        </div>
-        <input type="button" id="button" value="Оформить заказ">
+        <div id="map"></div>
+        <input type="button" id="button" value="Оформить заказ" onclick="Button_Clicked()">
+        <div id="mes"></div>
     </div>
 </body>
-<script src="script.js"></script>
 </html>
