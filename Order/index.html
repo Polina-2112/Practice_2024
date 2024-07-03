@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=08d03d33-8f86-4a08-ae31-c4ef26006a26&lang=ru_RU" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        var long, lat, myMap;
+        function init(){
+                myMap = new ymaps.Map("map", {
+                center: [54.167324, 37.584789],
+                zoom: 15
+            });
+        }
+        navigator.geolocation.getCurrentPosition(show, error);
+        function show(position)
+        {
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
+            myMap.setCenter([lat, long]);
+            console.log("show")
+        }
+        function error(positionError)
+        {
+            long = 54.167324;
+            lat = 37.584789;
+            myMap.setCenter([lat, long]);
+            console.log("error")
+        }
+    </script>
+</head>
+<style>
+    body 
+    {
+        margin: 80px 0px 0px 0px;
+    }
+        input 
+        {
+            height: 25px;
+            width: 350px;
+            font-size: 18px;
+            margin: 5px 5px 5px 5px;
+            border-color: #A475D1;
+            border-style: solid;
+            color: #A475D1;
+            border-radius: 3px;
+        }
+        input::placeholder
+        {
+            color: #CCB5DE;
+        }
+        #comm
+        {
+            height: 100px;
+        }
+        .container
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #map 
+        {
+            margin: 5px 5px 5px 5px;
+            height: 200px;
+            width: 350px;
+            background-color: lightgrey;
+        }
+</style>
+<body>
+    <div class="container">
+        <input type="text" id="fio" required placeholder="ФИО">
+        <input type="number" id="phone" required placeholder="Номер телефона">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="comm" placeholder="Комментарий к заказу">
+        <div id="map">
+
+        </div>
+        <input type="button" id="button" value="Оформить заказ">
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
