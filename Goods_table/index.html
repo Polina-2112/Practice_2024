@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods_table</title>
+    <script src="script.js"></script>
+    <style>
+    body
+    {
+        margin: 100px 0px 0px 0px;
+        text-align: center;
+    }
+    .button_container
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    label, input 
+    {
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+        padding: 2px 5px 2px 5px;
+        margin: 5px;
+        color: #A475D1;
+        outline: none;
+    } 
+    input[type="number"]
+    {
+        width: 130px;
+        border: 0;
+        border-bottom: 2px solid #CCB5DE;
+    }
+    input[type="number"]:focus
+    {
+        border: 0;
+        border-bottom: 3px solid #a45add;
+    }
+    input[type="number"]::placeholder
+    {
+        color: #CCB5DE;
+    }
+    input[type="button"]
+    {
+        border: 2px solid #CCB5DE;
+        border-radius: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: #f5ebfd;
+    }
+    input[type="button"]:hover
+    {
+        background-color: #CCB5DE;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="button_container">
+        <label>Цена от:</label>
+        <input type="number" id="begin_cost" placeholder="0">
+        <label>до:</label>
+        <input type="number" id="end_cost" placeholder="1000">
+        <input type="button" id="to_update" value="Обновить">
+    </div>
+    <div class="table_container">
+
+    </div>
+</body>
+</html>
