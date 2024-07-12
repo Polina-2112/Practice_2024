@@ -1,0 +1,11 @@
+.cont
+{
+    width: 800px !important;
+    height: 600px !important;
+}
+
+#graph
+{
+    width: 400px;
+    height: 800px;
+}
