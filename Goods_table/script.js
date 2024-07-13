@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", async function()
 
         const quantityCell = document.createElement('td');
         quantityCell.textContent = product.quantity;
+        quantityCell.style.textAlign = 'center';
         row.appendChild(quantityCell);
 
         const sum = document.createElement('td');
@@ -73,6 +74,8 @@ function to_update()
     const bc = document.getElementById('begin_cost');
     const ec = document.getElementById('end_cost');
     const er = document.getElementById('error_container');
+    const th = document.querySelector('#table thead');
+    const t = document.querySelector('#table tbody');
 
     if (parseInt(bc.value) < 0 || parseInt(ec.value < 0)) er.textContent = 'Цена не может быть отрицательной!';
     else
@@ -82,10 +85,12 @@ function to_update()
             {
                 if ((bc.value == 0 && ec.value == 0) || (bc.value == '' && ec.value == ''))
                 {
-                    const t = document.querySelector('#table tbody');
+                    er.textContent = '';
+
+                    th.style.display = 'table-header-group';
                     t.innerHTML = '';
                     res.forEach((product, index) => 
-                        {
+                    {
                     const row = document.createElement('tr');
                     t.appendChild(row);
             
@@ -103,6 +108,7 @@ function to_update()
             
                     const quantityCell = document.createElement('td');
                     quantityCell.textContent = product.quantity;
+                    quantityCell.style.textAlign = 'center';
                     row.appendChild(quantityCell);
             
                     const sum = document.createElement('td');
@@ -117,7 +123,8 @@ function to_update()
                     
                     var flag = false;
 
-                    const t = document.querySelector('#table tbody');
+                    th.style.display = 'table-header-group';
+                    er.textContent = '';
                     t.innerHTML = '';
 
                     res.forEach((product, index) => 
@@ -143,6 +150,7 @@ function to_update()
                     
                             const quantityCell = document.createElement('td');
                             quantityCell.textContent = product.quantity;
+                            quantityCell.style.textAlign = 'center';
                             row.appendChild(quantityCell);
                     
                             const sum = document.createElement('td');
@@ -153,8 +161,7 @@ function to_update()
 
                     if (flag == false)
                     {
-                        const th = document.querySelector('#table thead');
-                        th.innerHTML = '';
+                        th.style.display = 'none';
                         er.textContent = 'Нет данных, попадающих под условие фильтра';
                     }
                 }

@@ -1,0 +1,30 @@
+<?php
+$url = 'http://exercise.develop.maximaster.ru/service/cpu/';
+
+$username = 'cli';
+$password = '12344321';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+header('Content-Type: application/json');
+
+//HTTP код ответа
+if ($httpCode !== 200) {
+    echo "Failed to fetch data. HTTP code: $httpCode\n";
+    exit;
+}
+
+// Проверяем, удалось ли получить данные
+if ($response === false) {
+    echo "Unable to fetch data.";
+} else {
+    echo $response;
+}
+

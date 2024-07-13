@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU_graph</title>
+    <link rel="stylesheet" src="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="graph">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <div id="stat">
+        <p>Число запросов: <span id="req_amount"></span></p>
+        <p>Процент появления ошибок: <span id='er_percent'></span></p>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
