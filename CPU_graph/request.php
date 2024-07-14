@@ -15,16 +15,11 @@ curl_close($ch);
 
 header('Content-Type: application/json');
 
-//HTTP код ответа
 if ($httpCode !== 200) {
     echo "Failed to fetch data. HTTP code: $httpCode\n";
     exit;
 }
 
-// Проверяем, удалось ли получить данные
-if ($response === false) {
-    echo "Unable to fetch data.";
-} else {
-    echo $response;
-}
+if ($response === false) { echo "Unable to fetch data.";} 
+else { echo $response; }
 

@@ -1,0 +1,21 @@
+#graph_container
+{
+    margin: 20px;
+    height: 50vh;
+}
+
+#stat
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0px 20px 0px 20px;
+    color: #A475D1;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+#stat p
+{
+    padding: 0px 10px 0px 10px;
+}
