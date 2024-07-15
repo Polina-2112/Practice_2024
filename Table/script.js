@@ -36,8 +36,9 @@ function plus_column()
         const cell = document.createElement('td');
         cell.id = i.toString() + (ColumnsAmount).toString();
         cell.placeholder = cell.id;
-        cell.innerHTML = '<input type="text" id="' + i.toString() + (ColumnsAmount).toString() + '_input onchange="InputChanged(id)">';
+        cell.innerHTML = '<input type="text" id="' + i.toString() + (ColumnsAmount).toString() + '_input" onchange="InputChanged(id)">';
         row.appendChild(cell);
+        console.log()
         document.getElementById(i.toString() + (ColumnsAmount).toString() + '_input').placeholder = i.toString() + (ColumnsAmount).toString();
         t_num[i].push(ColumnsAmount);
     }
@@ -52,10 +53,22 @@ function minus_column()
     {
         for (var i = 0; i < RowAmount; i++)
         {
+            if (localStorage.getItem(i.toString() + (ColumnsAmount-1).toString() + '_input') != null) 
+                {
+                let result = confirm("Вы точно хотите удалить столбец?");
+            if (!result) return;
+            else break;
+                }
+        }
+
+        for (var i = 0; i < RowAmount; i++)
+        {
             const row = document.getElementById(i);
             var cell = document.getElementById(i.toString() + (ColumnsAmount-1).toString());
             row.removeChild(cell);
             t_num[i].pop();
+            if (localStorage.getItem(i.toString() + (ColumnsAmount-1).toString() + '_input') != null) 
+                localStorage.removeItem(i.toString() + (ColumnsAmount-1).toString() + '_input');
         }
     }
 }
@@ -76,7 +89,7 @@ function plus_row()
         cell.placeholder = RowAmount.toString() + i.toString();
         row.appendChild(cell);
         document.getElementById(RowAmount.toString() + i.toString()).innerHTML 
-            = '<input type="text" id="' + RowAmount.toString() + i.toString() + '_input onchange="InputChanged(id)">';
+            = '<input type="text" id="' + RowAmount.toString() + i.toString() + '_input" onchange="InputChanged(id)">';
         document.getElementById(RowAmount.toString() + i.toString() + '_input').placeholder 
             = RowAmount.toString() + i.toString();
 
@@ -87,16 +100,39 @@ function plus_row()
 function minus_row()
 {
     var RowAmount = t_num.length;
+    var ColumnsAmount = t_num[0].length;
     
+    for (var i = 0; i < ColumnsAmount; i++)
+    {
+        if (localStorage.getItem((RowAmount-1).toString() + i.toString() + '_input') != null)
+        {
+            let result = confirm("Вы точно хотите удалить строку?");
+            if (!result) return;
+            else break;
+        }
+    }
+
     if (RowAmount != 1)
     {
         const row = document.getElementById(RowAmount-1);
         t.removeChild(row);
         t_num.pop();
     }
+
+    for (var i = 0; i < ColumnsAmount; i++)
+    {
+        if (localStorage.getItem((RowAmount-1).toString() + i.toString() + '_input') != null)
+            localStorage.removeItem((RowAmount-1).toString() + i.toString() + '_input');
+    }
 }
 
-function InputChanged(id)
+function InputChanged(id) 
 {
-    if (localStorage)
+    console.log(id);
+    console.log(localStorage.getItem(id));
+    if (localStorage.getItem(id) == null) 
+         localStorage.setItem(id, document.getElementById(id).value);
+    else localStorage.setItem(id, document.getElementById(id).value);
+    console.log(localStorage.getItem(id));
 }
+
