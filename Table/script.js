@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function()
             { // j - номер столбца
             const cell = document.createElement('td');
             cell.id = i.toString() + j.toString();
-            cell.innerHTML = '<input type="text" id="' + i.toString() + j.toString() + '_input">';
+            cell.innerHTML = '<input type="text" id="' + i.toString() + j.toString() + '_input" onchange="InputChanged(id)">';
             row.appendChild(cell);
             document.getElementById(i.toString() + j.toString() + '_input').placeholder = i.toString() + j.toString();
             
@@ -36,7 +36,7 @@ function plus_column()
         const cell = document.createElement('td');
         cell.id = i.toString() + (ColumnsAmount).toString();
         cell.placeholder = cell.id;
-        cell.innerHTML = '<input type="text" id="' + i.toString() + (ColumnsAmount).toString() + '_input">';
+        cell.innerHTML = '<input type="text" id="' + i.toString() + (ColumnsAmount).toString() + '_input onchange="InputChanged(id)">';
         row.appendChild(cell);
         document.getElementById(i.toString() + (ColumnsAmount).toString() + '_input').placeholder = i.toString() + (ColumnsAmount).toString();
         t_num[i].push(ColumnsAmount);
@@ -76,7 +76,7 @@ function plus_row()
         cell.placeholder = RowAmount.toString() + i.toString();
         row.appendChild(cell);
         document.getElementById(RowAmount.toString() + i.toString()).innerHTML 
-            = '<input type="text" id="' + RowAmount.toString() + i.toString() + '_input">';
+            = '<input type="text" id="' + RowAmount.toString() + i.toString() + '_input onchange="InputChanged(id)">';
         document.getElementById(RowAmount.toString() + i.toString() + '_input').placeholder 
             = RowAmount.toString() + i.toString();
 
@@ -94,4 +94,9 @@ function minus_row()
         t.removeChild(row);
         t_num.pop();
     }
+}
+
+function InputChanged(id)
+{
+    if (localStorage)
 }
