@@ -1,11 +1,6 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: -80px 20px 0px 20px;
-    flex-direction: column;
+.pre_container
+{
+    padding: 100px 40px 0px 40px;
 }
 
 .container {
@@ -18,7 +13,7 @@ html, body {
 }
 .table_container {
     display: flex;
-    margin: 50px 10px 0 10px;
+    padding: 0px 10px 0px 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -51,6 +46,13 @@ input {
     flex-direction: column;
 }
 
+.buttons_container_2
+{
+    margin: 30px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+
 button
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -59,7 +61,8 @@ button
     width: 40px;
     height: 30px;
     background-color: #CCB5DE;
-    color: #A475D1;
+    color: #8f45d4;
+    font-weight: 700;
     border: 0;
 }
 button:hover
