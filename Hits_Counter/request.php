@@ -1,6 +1,6 @@
 <?php
+$db = new PDO("mysql:host=localhost;dbname=Practice_BD","root","");
 try {
-    $db = new PDO("mysql:host=localhost;dbname=Hits_Counter", "root", "");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->beginTransaction();
 
@@ -17,6 +17,6 @@ try {
 } catch (PDOException $e) 
 {
     $db->rollBack();
-    echo "Error: " . $e->getMessage();
+    echo "Error!";
 }
 

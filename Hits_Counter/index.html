@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hits_Counter</title>
 </head>
+<style>
+    .main, #err
+    {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+    }
+    .main
+    {
+        margin: 50px 0px 0px 0px;
+        color: #A475D1;
+    }
+    #err
+    {
+        color: rgb(163, 21, 21);
+        text-align: center;
+        margin: 20px;
+    }
+    .main p
+    {
+        margin: 0;
+        padding: 20px 20px 10px 20px;
+        text-align: center;
+    }
+</style>
 <body>
     <div class="main">
-       <p>Страница была загружена <span id="hits_amount"></span> раз.</p>
+       <p>Страница была загружена <span id="hits_amount"></span>.</p>
        <p>Текущее время <span id="time"></span></p>
     </div>
-    <div class="err">
+    <div id="err">
         
     </div>
 </body>
