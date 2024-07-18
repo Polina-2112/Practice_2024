@@ -3,6 +3,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     margin: 0;
 }
 .main_container
@@ -11,16 +12,17 @@ body
     flex-direction: column;
     justify-self: center;
     margin: 60px 60px 0px 60px;
-    width: 40%;
+    width: 35%;
 }
 .comments
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    color:#2e0555;
 }
 .comment
 {
-    border: 1px solid black;
+    border: 1px solid #A475D1;
     padding: 5px 10px 5px 10px;
     margin: 5px 0px 5px 0px;
 }
@@ -46,6 +48,11 @@ form
     margin: 3px 0px 3px 0px;
     padding: 2px;
     width: 40%;
+    border: #A475D1 2px solid;
+}
+#name::placeholder
+{
+    color: #CCB5DE;
 }
 #message
 {
@@ -54,6 +61,11 @@ form
     width: 100%;
     resize: none;
     height: 80px;
+    border: #A475D1 2px solid;
+}
+#message::placeholder
+{
+    color: #CCB5DE;
 }
 #To_Send
 {
@@ -63,14 +75,15 @@ form
     text-align: center;
     width: 40%;
     border-radius: 3px;
+    border: #A475D1 2px solid;
+    background-color: #f5ebfd;
+}
+#To_Send:hover
+{
+    background-color: #A475D1;
 }
 hr
 {
     margin: 10px 0px 10px 0px;
-}
-#err
-{
-    color:brown;
-    text-align: center;
-    font-weight: 600;
+    color: #A475D1;
 }
