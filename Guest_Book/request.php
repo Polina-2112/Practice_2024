@@ -11,7 +11,6 @@ if ($_GET['action'] == 'send')
     $stmt->bindParam(':name', $name, PDO::PARAM_STR);
     $stmt->bindParam(':date', $date, PDO::PARAM_STR);
     $stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
-
     $stmt->execute();   
 }
 
